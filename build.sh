@@ -4,14 +4,14 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SCRIPT_NAME=$(basename $0)
 BUILD_DIR=${SCRIPT_DIR}/build
 
-DOCKER_REG=${DOCKER_REG:-docker-artifactory.my}
+DOCKER_REG=${DOCKER_REG:-docker-artifactory.my:5000}
 DOCKER_USR=${DOCKER_USR:-admin}
 DOCKER_PSW=${DOCKER_PSW:-password}
 
 DOCKER_REPO=${DOCKER_REPO:-acme}
 DOCKER_TAG=${DOCKER_TAG:-dev}
 
-HELM_REPO=${HELM_REG:-http://artifactory.my/artifactory/helm}
+HELM_REPO=${HELM_REG:-http://ec2-13-229-206-92.ap-southeast-1.compute.amazonaws.com:8081/artifactory/helm-repo}
 HELM_USR=${HELM_USR:-admin}
 HELM_PSW=${HELM_PSW:-password}
 
@@ -173,7 +173,7 @@ main () {
     echo "HELM_USR:     ${HELM_USR}"
 
     # Cleanup
-    rm -rf ${BUILD_DIR}
+    #rm -rf ${BUILD_DIR}
 
     # Build and push docker images if needed
     if [ "${BUILD}" == "true" ]; then
