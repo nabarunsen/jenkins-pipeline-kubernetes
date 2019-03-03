@@ -123,7 +123,7 @@ pipeline {
 	HELM_REPO="http://172.31.3.74:8081/artifactory/helm-repo"
 	HELM_USR="admin"
 	HELM_PSW="password"
-	IMG_PULL_SECRET="docker-reg-secret"
+	IMG_PULL_SECRET="kubectl get secrets"
     }
 
     parameters {
