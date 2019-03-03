@@ -113,6 +113,7 @@ pipeline {
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
 	HELM_HOME = "/root/.helm"
+	WORKSPACE = "/home/ec2-user/jenkins-pipeline-kubernetes"
         PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
 	
     }
