@@ -153,7 +153,7 @@ pipeline {
 
                 // Validate kubectl
 		//sh "export KUBECONFIG=~/.kube/config"
-                //sh "kubectl cluster-info"
+                sh "kubectl cluster-info"
 
                 // Init helm client
                 sh "helm init"
