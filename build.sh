@@ -173,7 +173,7 @@ main () {
     echo "HELM_USR:     ${HELM_USR}"
 
     # Cleanup
-    #rm -rf ${BUILD_DIR}
+    rm -rf ${BUILD_DIR}
 
     # Build and push docker images if needed
     if [ "${BUILD}" == "true" ]; then
