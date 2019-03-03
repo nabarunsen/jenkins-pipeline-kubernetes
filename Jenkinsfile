@@ -115,6 +115,14 @@ pipeline {
 	HELM_HOME = "/root/.helm"
 	WORKSPACE = "/home/ec2-user/jenkins-pipeline-kubernetes"
         PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
+	DOCKER_REG="docker-artifactory.my:5000"
+	DOCKER_USR="admin"
+	DOCKER_PSW="password"
+	DOCKER_REPO="acme"
+	DOCKER_TAG="dev"
+	HELM_REPO="http://172.31.3.74:8081/artifactory/helm-repo"
+	HELM_USR="admin"
+	HELM_PSW="password"
 	
     }
 
@@ -167,7 +175,7 @@ pipeline {
                 }
 
                 // Load Docker registry and Helm repository configurations from file
-                load "${JENKINS_HOME}/parameters.groovy"
+                //load "${JENKINS_HOME}/parameters.groovy"
 
                 echo "DOCKER_REG is ${DOCKER_REG}"
                 echo "HELM_REPO  is ${HELM_REPO}"
