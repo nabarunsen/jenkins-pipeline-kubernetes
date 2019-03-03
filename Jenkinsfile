@@ -150,8 +150,8 @@ pipeline {
                         url: 'https://github.com/nabarunsen/jenkins-pipeline-kubernetes.git'
 
                 // Validate kubectl
-		sh "export KUBECONFIG=~/.kube/config"
-                sh "kubectl cluster-info"
+		//sh "export KUBECONFIG=~/.kube/config"
+                //sh "kubectl cluster-info"
 
                 // Init helm client
                 sh "helm init"
