@@ -4,7 +4,7 @@
 replicaCount: 1
 imagePullSecrets:
 image:
-  repository: docker-artifactory.my:5000/acme
+  repository: acme
   tag: dev
   pullPolicy: Always
 service:
