@@ -28,7 +28,7 @@ def helmInstall (namespace, release) {
     script {
         release = "${release}-${namespace}"
         sh "helm repo add helm ${HELM_REPO}; helm repo update"
-	    sh "docker tag {DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG} ${DOCKER_REPO}:${DOCKER_TAG}"
+	    sh "docker tag docker-artifactory.my:5000/acme:dev acme:dev"
         sh "helm upgrade --install --namespace ${namespace} ${release} helm/acme"
         sh "sleep 5"
     }
