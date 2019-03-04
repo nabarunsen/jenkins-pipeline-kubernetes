@@ -28,10 +28,10 @@ def helmInstall (namespace, release) {
     script {
         release = "${release}-${namespace}"
         sh "helm repo add helm ${HELM_REPO}; helm repo update"
-	sh ""
-	
-	helm upgrade --install --namespace ${namespace} ${release} helm/acme
-	""
+	    
+	    sh "docker pull 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/${IMAGE_NAME}:${DOCKER_TAG}"
+	sh "docker tag 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/${IMAGE_NAME}:${DOCKER_TAG} ${IMAGE_NAME}:${DOCKER_TAG}"
+	sh "helm upgrade --install --namespace ${namespace} ${release} helm/acme"
         sh "sleep 5"
     }
 }
