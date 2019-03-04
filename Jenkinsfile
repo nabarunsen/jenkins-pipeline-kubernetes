@@ -32,7 +32,7 @@ def helmInstall (namespace, release) {
 	sh "docker login ${DOCKER_REG} -u ${DOCKER_USR} -p ${DOCKER_PSW}"
 	sh "docker pull 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/${IMAGE_NAME}:${DOCKER_TAG}"
 	sh "docker tag 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/${IMAGE_NAME}:${DOCKER_TAG} ${IMAGE_NAME}:${DOCKER_TAG}"
-	sh "helm upgrade --install --namespace ${namespace} ${release} helm/acme"
+	sh "helm upgrade --install --namespace ${namespace} ${release} --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/acme"
         sh "sleep 5"
     }
 }
