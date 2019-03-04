@@ -28,12 +28,12 @@ def helmInstall (namespace, release) {
     script {
         release = "${release}-${namespace}"
         sh "helm repo add helm ${HELM_REPO}; helm repo update"
+	sh "{DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG} ${DOCKER_REPO}:${DOCKER_TAG}"
         sh """
            /* helm upgrade --install --namespace ${namespace} ${release} \
                 --set imagePullSecrets=${IMG_PULL_SECRET} \
                 --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} $WORKSPACE/helm/acme
         """*/
-	   docker tag ${DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG} ${DOCKER_REPO}:${DOCKER_TAG}
 	   helm upgrade --install --namespace ${namespace} ${release} $WORKSPACE/helm/acme
         """
         sh "sleep 5"
