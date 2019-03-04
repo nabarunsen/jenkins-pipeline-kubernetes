@@ -28,11 +28,6 @@ def helmInstall (namespace, release) {
     script {
         release = "${release}-${namespace}"
         sh "helm repo add helm ${HELM_REPO}; helm repo update"
-	//sh """
-            helm upgrade --install --namespace ${namespace} ${release} \
-                --set imagePullSecrets=${IMG_PULL_SECRET} \
-                --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/acme
-        """//
 	sh ""
 	docker pull 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/acme:dev
 	docker tag 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/acme:dev acme:dev
