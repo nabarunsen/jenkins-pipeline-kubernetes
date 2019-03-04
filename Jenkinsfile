@@ -28,7 +28,7 @@ def helmInstall (namespace, release) {
     script {
         release = "${release}-${namespace}"
         sh "helm repo add helm ${HELM_REPO}; helm repo update"
-	sh "{DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG} ${DOCKER_REPO}:${DOCKER_TAG}"
+	sh "{DOCKER_REG}/${DOCKER_REPO}:\${DOCKER_TAG} ${DOCKER_REPO}:\${DOCKER_TAG}"
         sh """
            /* helm upgrade --install --namespace ${namespace} ${release} \
                 --set imagePullSecrets=${IMG_PULL_SECRET} \
