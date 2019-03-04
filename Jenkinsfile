@@ -29,8 +29,7 @@ def helmInstall (namespace, release) {
         release = "${release}-${namespace}"
         sh "helm repo add helm ${HELM_REPO}; helm repo update"
 	sh ""
-	docker pull 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/acme:dev
-	docker tag 077776510793.dkr.ecr.ap-southeast-1.amazonaws.com/acme:dev acme:dev
+	
 	helm upgrade --install --namespace ${namespace} ${release} helm/acme
 	""
         sh "sleep 5"
