@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SCRIPT_NAME=$(basename $0)
 BUILD_DIR=${SCRIPT_DIR}/build
 
-DOCKER_REG=${DOCKER_REG:-docker-artifactory.my:5000}
+DOCKER_REG=${DOCKER_REG:-docker-repo:8081}
 DOCKER_USR=${DOCKER_USR:-admin}
 DOCKER_PSW=${DOCKER_PSW:-password}
 
