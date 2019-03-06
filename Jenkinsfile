@@ -283,7 +283,7 @@ pipeline {
             }
         }
 
-        /*stage('Cleanup dev') {
+        stage('Cleanup dev') {
             steps {
                 script {
                     // Remove release if exists
@@ -409,6 +409,6 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
     }
 }
