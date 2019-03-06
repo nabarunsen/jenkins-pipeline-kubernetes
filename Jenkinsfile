@@ -114,7 +114,7 @@ pipeline {
         HELM_HOME = "/root/.helm"
 	WORKSPACE = "/root/jenkins-pipeline-kubernetes"
         PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
-	DOCKER_REG="docker-repo:8081"
+	DOCKER_REG="docker-repo:8081/docker-repo"
 	DOCKER_USR="admin"
 	DOCKER_PSW="password"
 	DOCKER_TAG="dev"
