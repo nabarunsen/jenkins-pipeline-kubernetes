@@ -33,6 +33,7 @@ def helmInstall (namespace, release) {
                 --set imagePullSecrets=${IMG_PULL_SECRET} \
                 --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/acme
         """
+	sh "sleep 20"
     }
 }
 
@@ -258,6 +259,7 @@ pipeline {
                     // Deploy with helm
                     echo "Deploying"
                     helmInstall(namespace, "${ID}")
+		    sh "sleep 20"
                 }
             }
         }
@@ -288,6 +290,7 @@ pipeline {
                 script {
                     // Remove release if exists
                     helmDelete (namespace, "${ID}")
+		    sh "sleep 20"
                 }
             }
         }
@@ -307,6 +310,7 @@ pipeline {
                     // Deploy with helm
                     echo "Deploying"
                     helmInstall (namespace, "${ID}")
+		    sh "sleep 20"
                 }
             }
         }
@@ -382,6 +386,7 @@ pipeline {
                     // Deploy with helm
                     echo "Deploying"
                     helmInstall (namespace, "${ID}")
+		    sh "sleep 20"
                 }
             }
         }
