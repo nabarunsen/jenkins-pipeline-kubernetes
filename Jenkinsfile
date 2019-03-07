@@ -118,7 +118,7 @@ pipeline {
 	DOCKER_USR="admin"
 	DOCKER_PSW="password"
 	DOCKER_TAG="dev"
-	HELM_REPO="http://172.31.4.238:8081/artifactory/helm-repo"
+	HELM_REPO="http://172.31.12.14:8081/artifactory/helm-repo"
 	HELM_USR="admin"
 	HELM_PSW="password"
 	IMG_PULL_SECRET="regcred"
@@ -203,7 +203,7 @@ pipeline {
 
                 script {
                     //host_ip = sh(returnStdout: true, script: '/sbin/ip route | awk \'/default/ { print $3 ":${TEST_LOCAL_PORT}" }\'')
-		    host_ip = "172.31.4.238:8817"
+		    host_ip = "172.31.12.14:8817"
                 }
             }
         }
